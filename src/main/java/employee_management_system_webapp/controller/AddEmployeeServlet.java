@@ -37,12 +37,13 @@ public class AddEmployeeServlet extends HttpServlet {
 		
 		resp.setContentType("text/html");
 		if(result) {
-			pw.println("Employee Data Successfully Added");
-			pw.println("<a href = 'admin_operations.jsp'>Go to Admin Operations </a>");
+			rd.include(req, resp);
+			pw.println("<h2 style='color: red;'>Employee Data Successfully Added</h2>");
+			pw.println("<a class='button' href = 'admin_operations.jsp'>Go to Admin Operations </a>");
 		}
 			else {
 				rd.include(req, resp);
-				pw.println("Failed to Add Employee Data");
+				pw.println("<h2 style='color: red;'>Failed to Add Employee Data</h2>");
 	 }
 	}
 }

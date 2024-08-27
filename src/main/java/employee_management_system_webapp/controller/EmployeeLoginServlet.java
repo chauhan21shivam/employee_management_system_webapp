@@ -17,9 +17,8 @@ import employee_management_system_webapp.model.dto.Employee;
 
 
 
-
-@WebServlet(value="/admin_login")
-public class AdminLoginServlet extends HttpServlet {
+@WebServlet(value="/emp_login")
+public class EmployeeLoginServlet extends HttpServlet {
 	
 	EmployeeDao eDao = new EmployeeDao();
 	Employee emp = new Employee();
@@ -33,18 +32,18 @@ public class AdminLoginServlet extends HttpServlet {
 		emp.setPassword(password);
 		
 		PrintWriter pw = resp.getWriter();
-		RequestDispatcher rd = req.getRequestDispatcher("admin_login.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("emp_login.jsp");
 		
-		boolean result =  eDao.adminloginValidate(emp);
+		boolean result =  eDao.loginValidateForEmployee(emp);
 		
 		if(result) {
 			HttpSession session = req.getSession();
-			session.setAttribute("adminId", id);
-			resp.sendRedirect("admin_operations.jsp");
+			session.setAttribute("empId", id);
+			resp.sendRedirect("emp_operations.jsp");
 		}
 		else {
 			rd.include(req, resp);
-			pw.println("<h2 style='color: red;'>Login Failed, Invalid id or password<h2>");
+			pw.println("<h2 style='color: red;'>Login Failed, Invalid id or password</h2>");
 		}
 	 }
 

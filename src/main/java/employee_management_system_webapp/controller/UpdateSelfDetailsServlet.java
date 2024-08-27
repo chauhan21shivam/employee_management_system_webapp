@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import employee_management_system_webapp.model.dao.EmployeeDao;
 import employee_management_system_webapp.model.dto.Employee;
 
-@WebServlet(value ="/update_emp")
-public class UpdateEmployeeServlet extends HttpServlet {
+@WebServlet(value ="/update_self")
+public class UpdateSelfDetailsServlet extends HttpServlet {
 	EmployeeDao eDao = new EmployeeDao();
 	Employee emp;
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
 		String name = req.getParameter("name");
 		String salary = req.getParameter("salary");
@@ -44,12 +44,11 @@ public class UpdateEmployeeServlet extends HttpServlet {
 			emp.setRole(role);
 		}
 		
+		
 		boolean result = eDao.UpdateEmployee(emp);
 		PrintWriter pw = resp.getWriter();
-		RequestDispatcher rd1 = req.getRequestDispatcher("update_emp.jsp");
-		
-		req.setAttribute("empid", id);
-		RequestDispatcher rd2 = req.getRequestDispatcher("view_emp");
+		RequestDispatcher rd1 = req.getRequestDispatcher("update_self.jsp");
+		RequestDispatcher rd2 = req.getRequestDispatcher("view_self");
 		
 		if(result) {
 			rd2.forward(req, resp);

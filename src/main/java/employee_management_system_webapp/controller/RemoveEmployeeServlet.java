@@ -16,22 +16,36 @@ import employee_management_system_webapp.model.dao.EmployeeDao;
 public class RemoveEmployeeServlet extends HttpServlet {
 	
 	EmployeeDao eDao = new EmployeeDao();
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
+		String source = req.getParameter("source"); // Get the source parameter
+		
 		boolean result = eDao.removeEmployee(id);
+	
+//		PrintWriter pw = resp.getWriter();
 		
-		PrintWriter pw = resp.getWriter();
-		
-		RequestDispatcher rd1 = req.getRequestDispatcher("view_all_emp.jsp");
-		RequestDispatcher rd2 = req.getRequestDispatcher("view_all_emp");
+		RequestDispatcher rdError = req.getRequestDispatcher("error.jsp");
+		RequestDispatcher rdViewAll = req.getRequestDispatcher("view_all_emp");
+		RequestDispatcher rdViewEmp = req.getRequestDispatcher("view_emp");
 		
 		if(result) {
-			rd2.forward(req, resp);
-		}
-		else {
-			rd1.include(req, resp);
-			pw.println("Failed to remove employee");
+			if ("viewAll".equals(source)) {
+				rdViewAll.forward(req, resp);
+				
+			} else if ("viewEmployee".equals(source)) {
+				req.setAttribute("empid", id);
+				rdViewEmp.forward(req, resp);
+				
+			} else {
+				// Default case, redirect to admin operations or a suitable page
+				resp.sendRedirect("admin_operations.jsp");
+				
+			}
+		} else {
+			rdError.forward(req, resp);
 		}
 	}
 }
