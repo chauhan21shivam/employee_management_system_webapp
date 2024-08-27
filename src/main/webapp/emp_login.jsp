@@ -8,12 +8,12 @@
 <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-		<form action="admin_login" method="post" autocomplete="off" class="form-container">
-			<label for="id">Admin Id:</label>
-			<input type="number" id="id" name="id"><br>
-			<label for="password">Admin Password:</label>
-			<input type="password" id="password" name="password"><br>
-			<input type="submit" value="Login">
+	<form action="emp_login" method="post" autocomplete="off" class="form-container">
+		<label for="id">Employee Id:</label>
+		<input type="number" id="id" name="id"><br>
+		<label for="password">Employee Password:</label>
+		<input type="password" id="password" name="password"><br>
+		<input type="submit" value="Login">
 	
 </body>
 </html>

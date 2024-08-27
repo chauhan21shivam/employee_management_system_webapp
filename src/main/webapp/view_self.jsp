@@ -20,11 +20,9 @@
 		<h2>Employee Phone : <%= emp.getPhone() %></h2>
 		<h2>Employee Role : <%= emp.getRole() %></h2>
 		
-		<a href="update_emp.jsp?id=<%=emp.getId()%>&name=<%=emp.getName()%>&salary=<%=emp.getSalary()%>&phone=<%=emp.getPhone()%>&password=<%=emp.getPassword()%>&role=<%=emp.getRole()%>">Update Employee</a>
-	    <br><br>
-	    <a class="remove" href="remove_emp?id=<%=emp.getId()%>&source=viewEmployee">Remove Employee</a>
-	    <br><br>
-	    <a class="operations" href="admin_operations.jsp">Go to Admin Operations</a>
-	</div>
+		<a href="update_self.jsp?id=<%=emp.getId()%>&name=<%=emp.getName()%>&salary=<%=emp.getSalary()%>&phone=<%=emp.getPhone()%>&password=<%=emp.getPassword()%>&role=<%=emp.getRole()%>">Update Employee</a>
+		   <br><br>
+		<a class="operations" href = 'emp_operations.jsp'>Go to Employee Operations </a>
+	</div>		
 </body>
 </html>

@@ -8,13 +8,10 @@
 <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-
-	<form action="view_emp" method ="post" class="form-container">
-	<label for="id">Enter the Employee Id:</label>
-	<input type="number" id="id" name = "id"><br>
-
-	<input type="submit">
-
+	<div class="main">
+		<h2> <a href="view_self"> View your Details </a></h2>
+		<h2> <a href="view_self"> Update Your Details </a></h2>
+		<h2> <a href="logout"> Logout  </a></h2>
+	</div>
 </body>
 </html>
-<! removed form tag intentionally to add message within block>

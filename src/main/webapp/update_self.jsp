@@ -17,19 +17,13 @@
 	String role = request.getParameter("role");
 %>
 
-<form action="update_emp" method="post" class="form-container2">
-    <input type="hidden" name="id" value="<%=id %>"><br>
-
-    <div class="field">
+	<form action="update_self" method ="get" class="form-container2">
+	<div class="field">
+	 <input type="hidden" name="id" value="<%=id %>"><br>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="<%=name %>"><br>
     </div>
-
-    <div class="field">
-        <label for="salary">Salary:</label>
-        <input type="text" id="salary" name="salary" placeholder="<%=salary %>"><br>
-    </div>
-
+    
     <div class="field">
         <label for="phone">Phone:</label>
         <input type="text" id="phone" name="phone" placeholder="<%=phone %>"><br>
@@ -39,16 +33,11 @@
         <label for="password">Password:</label>
         <input type="text" id="password" name="password" placeholder="<%=password %>"><br>
     </div>
-
-    <div class="field">
-        <label for="role">Role:</label>
-        <input type="text" id="role" name="role" placeholder="<%=role %>"><br>
-    </div>
-
-    <input type="submit" value="Update">
-    
-</form>
-
+	<input type="hidden" name ="salary" placeholder =<%=salary %> > <br>
+	<input type="hidden" name ="role" placeholder =<%=role %> > <br>
+	
+	  <input type="submit" value="Update">
+	</form>
 	
 </body>
 </html>
