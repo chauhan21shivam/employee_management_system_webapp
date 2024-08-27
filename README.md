@@ -89,5 +89,4 @@ This is a web-based application built using JSP, Servlet, and JDBC following the
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author
-**Your Name - [Shivam Chauhan](https://www.linkedin.com/in/chauhan21shivam)**
-
+**[Shivam Chauhan](https://www.linkedin.com/in/chauhan21shivam)**
